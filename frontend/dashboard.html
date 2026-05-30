@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your personalized AI diet dashboard — view BMI, generate meal plans, and track nutrition.">
+  <title>Dashboard — Calorithm</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🥗 Calorithm</div>
+    <div class="nav-links">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="profile.html">Profile</a>
+    </div>
+    <div class="nav-user">
+      <span class="user-name" id="navUserName"></span>
+      <button id="logoutBtn" class="btn btn-secondary" style="padding:6px 14px;font-size:0.8rem;">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-content container">
+    <!-- Greeting -->
+    <h1 style="font-family:var(--font-heading);font-size:1.8rem;font-weight:700;margin-bottom:4px;">
+      Welcome back, <span id="userName"></span> 👋
+    </h1>
+    <p style="color:var(--text-secondary);margin-bottom:28px;">Here's your nutrition overview.</p>
+
+    <!-- Stats Row -->
+    <div class="stats-grid">
+      <!-- BMI Card -->
+      <div class="stat-card">
+        <div class="stat-label">Your BMI</div>
+        <div id="bmiGauge" class="bmi-gauge-wrapper">
+          <p style="color:var(--text-muted);font-size:0.85rem;">Loading…</p>
+        </div>
+        <p id="bmiRange" style="font-size:0.8rem;color:var(--text-secondary);text-align:center;margin-top:8px;"></p>
+      </div>
+
+      <!-- Goal -->
+      <div class="stat-card">
+        <div class="stat-label">Goal</div>
+        <div class="stat-value" id="statGoal">—</div>
+        <div class="stat-sub">Your current objective</div>
+      </div>
+
+      <!-- Activity -->
+      <div class="stat-card">
+        <div class="stat-label">Activity Level</div>
+        <div class="stat-value" id="statActivity">—</div>
+        <div class="stat-sub">Daily activity</div>
+      </div>
+
+      <!-- Weight -->
+      <div class="stat-card">
+        <div class="stat-label">Current Weight</div>
+        <div class="stat-value" id="statWeight">—</div>
+        <div class="stat-sub">Last recorded</div>
+      </div>
+    </div>
+
+    <!-- Generate Meal Plan -->
+    <div class="section-header">
+      <h2>🍽️ Meal Plan</h2>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="toggle-group">
+          <button class="active" data-type="daily">Daily</button>
+          <button data-type="weekly">Weekly</button>
+        </div>
+        <button id="generateBtn" class="btn btn-primary">✨ Generate Meal Plan</button>
+      </div>
+    </div>
+
+    <div id="mealPlanDisplay" class="meal-plan-container">
+      <p style="color:var(--text-muted);text-align:center;padding:60px 20px;font-size:0.95rem;">
+        Click "Generate Meal Plan" to get your AI-powered personalized nutrition plan.
+      </p>
+    </div>
+
+    <!-- History -->
+    <div style="margin-top:48px;">
+      <div class="section-header">
+        <h2>📋 Plan History</h2>
+      </div>
+      <div id="historyList" class="history-list">
+        <p style="color:var(--text-muted);font-size:0.9rem;">Loading history…</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/bmi.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
