@@ -5,3 +5,4 @@ flask-login
 flask-sqlalchemy
 python-dotenv
 requests
+gunicorn
