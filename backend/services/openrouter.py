@@ -110,9 +110,10 @@ def generate_meal_plan(user_data: dict, plan_type: str = "daily") -> dict:
     """
     headers = get_openrouter_headers()
     prompt = build_meal_prompt(user_data, plan_type)
+    model = current_app.config.get("OPENROUTER_MODEL", "google/gemini-2.5-flash")
 
     payload = {
-        "model": "google/gemini-2.0-flash-001",
+        "model": model,
         "messages": [
             {
                 "role": "system",
